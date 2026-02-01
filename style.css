@@ -1,0 +1,241 @@
+/* --- 1. Variables & Global Reset --- */
+:root {
+    --bg-base: #000000;
+    --bg-main: #121212;
+    --bg-card: #181818;
+    --bg-card-hover: #282828;
+    --spotify-green: #1DB954;
+    --text-white: #ffffff;
+    --text-grey: #b3b3b3;
+    --sidebar-width: 240px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Circular', 'Helvetica Neue', Arial, sans-serif; }
+body { background: var(--bg-main); color: var(--text-white); display: flex; overflow-x: hidden; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background: #555; border-radius: 6px; border: 3px solid var(--bg-main); }
+
+/* --- 2. Sidebar Navigation (Desktop) --- */
+.sidebar { 
+    width: var(--sidebar-width); 
+    background: var(--bg-base); 
+    height: 100vh; 
+    position: fixed; 
+    padding: 24px; 
+    z-index: 1000; 
+}
+.logo { font-size: 28px; font-weight: 900; margin-bottom: 40px; letter-spacing: -1.5px; }
+.sidebar ul li { list-style: none; margin-bottom: 18px; }
+.sidebar ul li a { color: var(--text-grey); text-decoration: none; font-weight: 700; font-size: 14px; display: flex; gap: 16px; align-items: center; transition: 0.2s; }
+.sidebar ul li a:hover, .sidebar ul li.active a { color: var(--text-white); }
+.sidebar ul li a i { font-size: 20px; }
+
+/* --- 3. Main Viewport Area --- */
+.main-view { 
+    margin-left: var(--sidebar-width); 
+    width: calc(100% - var(--sidebar-width)); 
+    min-height: 100vh; 
+    padding-bottom: 110px; 
+}
+.hero-gradient { 
+    height: 40vh; 
+    background: linear-gradient(to bottom, #454545, var(--bg-main)); 
+    padding: 60px 8%; 
+    display: flex; 
+    align-items: flex-end; 
+}
+.container { padding: 40px 8%; }
+
+/* --- 4. Typography --- */
+h1 { font-size: clamp(40px, 8vw, 80px); font-weight: 900; letter-spacing: -3px; margin-bottom: 10px; }
+.sub-title { font-size: 24px; font-weight: 800; margin-bottom: 20px; color: var(--text-white); }
+
+/* --- 5. Tracklist UI (GitHub & Resume) --- */
+.tracklist-container { width: 100%; margin-top: 20px; }
+.track-row { 
+    display: grid; 
+    grid-template-columns: 30px 1fr 150px 50px; 
+    padding: 10px 15px; 
+    border-radius: 6px; 
+    align-items: center; 
+    transition: 0.3s; 
+    cursor: pointer; 
+}
+.track-row:hover { background: rgba(255, 255, 255, 0.1); }
+.track-main { display: flex; flex-direction: column; }
+.track-title { font-weight: 600; font-size: 15px; }
+.track-sub { font-size: 13px; color: var(--text-grey); }
+.track-tag { font-size: 11px; font-weight: bold; color: var(--spotify-green); text-transform: uppercase; }
+
+/* --- 6. Album/Project Cards --- */
+.album-grid, .card-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 24px; 
+}
+.spotify-card, .album-card { 
+    background: var(--bg-card); 
+    padding: 16px; 
+    border-radius: 8px; 
+    transition: 0.3s; 
+    position: relative; 
+}
+.spotify-card:hover, .album-card:hover { background: var(--bg-card-hover); transform: translateY(-5px); }
+.spotify-card img, .album-art-large { 
+    width: 100%; 
+    aspect-ratio: 1; 
+    border-radius: 4px; 
+    object-fit: cover; 
+    margin-bottom: 15px; 
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5); 
+}
+.play-btn-circle { 
+    position: absolute; right: 25px; bottom: 85px; width: 48px; height: 48px; 
+    background: var(--spotify-green); border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center; 
+    opacity: 0; transition: 0.3s; box-shadow: 0 8px 16px rgba(0,0,0,0.3); 
+}
+.spotify-card:hover .play-btn-circle { opacity: 1; transform: translateY(-10px); }
+
+/* --- 7. Fixed Player Bar --- */
+.player-bar { 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    height: 90px; 
+    background: #181818; 
+    border-top: 1px solid #282828; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 0 20px; 
+    z-index: 2000; 
+}
+.now-playing { display: flex; align-items: center; gap: 14px; width: 30%; }
+.album-art { width: 56px; height: 56px; border-radius: 4px; }
+.track-name { font-weight: 700; font-size: 14px; display: block; }
+.artist-name { font-size: 12px; color: var(--text-grey); }
+.controls i { color: var(--text-grey); margin: 0 15px; cursor: pointer; transition: 0.2s; }
+.controls i:hover { color: var(--text-white); }
+.controls .fa-circle-play { color: var(--text-white); font-size: 32px; }
+
+/* --- 8. Forms & Modals --- */
+.spotify-input { 
+    background: #2a2a2a; border: 1px solid transparent; color: white; 
+    padding: 14px; border-radius: 4px; width: 100%; margin-bottom: 16px; font-size: 14px; 
+}
+.spotify-input:focus { outline: none; background: #333; border-color: #555; }
+.action-btn { 
+    background: var(--spotify-green); color: black; border: none; 
+    padding: 14px 32px; border-radius: 30px; font-weight: 700; 
+    cursor: pointer; text-transform: uppercase; letter-spacing: 1px; 
+}
+.overlay { 
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.8); z-index: 5000; justify-content: center; 
+    align-items: center; backdrop-filter: blur(5px); 
+}
+.modal-card { background: var(--bg-card-hover); padding: 32px; border-radius: 12px; text-align: center; max-width: 400px; }
+
+/* --- 9. Album Dropdown Logic --- */
+.album-dropdown { 
+    display: none; background: rgba(255, 255, 255, 0.03); 
+    border-radius: 8px; padding: 10px; margin-top: 5px; width: 100%; 
+    grid-column: 1 / -1; 
+}
+.album-dropdown.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+ /* --- 10. REFINED MOBILE UI (SPOTIFY STYLE) --- */
+@media screen and (max-width: 768px) {
+    /* Main container fix: ensure content doesn't get hidden behind two fixed bars */
+    .main-view {
+        margin-left: 0 !important;
+        width: 100%;
+        padding: 15px;
+        padding-bottom: 160px; /* Space for both Floating Player + Bottom Nav */
+    }
+
+    /* 1. BOTTOM NAVIGATION (Black Bar) */
+    .sidebar {
+        width: 100%;
+        height: 70px;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        flex-direction: row;
+        padding: 0;
+        background: linear-gradient(to top, #000 80%, transparent);
+        display: flex;
+        justify-content: space-around;
+        border-right: none;
+        border-top: none;
+        position: fixed;
+        z-index: 3000;
+    }
+
+    .sidebar .logo { display: none; }
+    
+    .sidebar ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.95);
+    }
+
+    .sidebar ul li { margin-bottom: 0; flex: 1; }
+    .sidebar ul li a { 
+        flex-direction: column; 
+        gap: 5px; 
+        font-size: 10px; /* Text shows under icons on mobile */
+        color: var(--text-grey);
+    }
+    
+    .sidebar ul li a span { display: block; } /* Show labels on mobile */
+    .sidebar ul li a i { font-size: 20px; }
+
+    /* 2. FLOATING PLAYER (The Red/Dark Bar) */
+    .player-bar {
+        bottom: 75px; /* Lifts it exactly above the bottom nav */
+        left: 10px;
+        right: 10px;
+        width: calc(100% - 20px);
+        height: 60px;
+        background: #7d1a1a; /* Match the red tone from your screenshot */
+        border-radius: 8px; /* Floating rounded look */
+        border: none;
+        padding: 0 10px;
+        z-index: 2500;
+    }
+
+    .now-playing { width: 70%; gap: 10px; }
+    .now-playing img { width: 40px; height: 40px; border-radius: 4px; }
+    
+    /* Hide extra controls on mobile for clean look */
+    .controls .fa-shuffle, .controls .fa-repeat, .controls .fa-backward-step, .controls .fa-forward-step {
+        display: none;
+    }
+    
+    .controls { width: 30%; justify-content: flex-end; }
+    .controls i { font-size: 24px; margin: 0; color: #fff; }
+
+    /* 3. CONTENT SCALING */
+    h1 { font-size: 32px !important; margin-top: 20px; }
+    .hero-gradient { height: auto; padding: 20px 0; }
+    
+    .card-grid, .album-grid {
+        grid-template-columns: 1fr 1fr; /* Two albums per row like Spotify mobile */
+        gap: 12px;
+    }
+
+    .track-row {
+        grid-template-columns: 1fr 40px; /* Hide numbers to save horizontal space */
+        padding: 10px 0;
+    }
+    .track-number { display: none; }
+    .track-tag { display: none; } /* Hide green tags on mobile list for more space */
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Anthony Egan | Portfolio</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://kit.fontawesome.com/23789633b0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">egan <i class="fa-solid fa-bolt" style="color: #1DB954;"></i></div>
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="research.html"><i class="fa-solid fa-flask"></i> Research</a></li>
+            <li><a href="github.html"><i class="fa-solid fa-code"></i> GitHub</a></li>
+            <li class="active"><a href="resume.html"><i class="fa-solid fa-file-invoice"></i> Resume</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+    
+<div class="main-view">
+    <div class="hero-gradient" style="background: linear-gradient(to bottom, #454545, #121212);">
+        <h1>Discography</h1>
+    </div>
+
+    <div class="container">
+        <div class="album-grid">
+            
+            <div class="album-container">
+                <div class="album-card" onclick="toggleAlbum('skills-content')">
+                    <img src="images/skills-cover.jpg" alt="Skills Cover Art" class="album-art-large">
+                    <div class="play-btn-circle"><i class="fa-solid fa-play"></i></div>
+                    <h3>Technical Skills</h3>
+                    <p>Album • 2026</p>
+                </div>
+                <div id="skills-content" class="album-dropdown">
+                    <div class="track-row">
+                        <span class="track-id">1</span>
+                        <div class="track-main">
+                            <span class="track-title">Programming</span>
+                            <span class="track-sub">C++, Python, MATLAB, R, SQL, Java, JS, HTML, CSS</span>
+                        </div>
+                        <span class="track-tag">DEV</span>
+                    </div>
+                    <div class="track-row">
+                        <span class="track-id">2</span>
+                        <div class="track-main">
+                            <span class="track-title">Lab Work</span>
+                            <span class="track-sub">PCR, Gel Electrophoresis, Sanger Sequencing, Western Blot, Rotovap Filtration, Spectrophotometric analysis, ion exchange columns, gel columns, gas liquid columns, HPLC, fluorometric analysis, pipette & micropipetting, preparing solutions, glove box</span>
+                        </div>
+                        <span class="track-tag">BIO</span>
+                    </div>
+                    <div class="track-row">
+                        <span class="track-id">3</span>
+                        <div class="track-main">
+                            <span class="track-title">Data Analysis</span>
+                            <span class="track-sub">Statistical analysis, data visualization, machine learning, data cleaning, data wrangling, experimental design, hypothesis testing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-container">
+                <div class="album-card" onclick="toggleAlbum('exp-content')">
+                    <img src="images/exp-cover.jpg" alt="Experience Cover Art" class="album-art-large">
+                    <div class="play-btn-circle"><i class="fa-solid fa-play"></i></div>
+                    <h3>Work History</h3>
+                    <p>LP • 2024</p>
+                </div>
+                <div id="exp-content" class="album-dropdown">
+                    <div class="track-row">
+                        <span class="track-id">1</span>
+                        <div class="track-main">
+                            <span class="track-title">Dinolfo Group</span>
+                            <span class="track-sub">Acridine Stock & Stern-Volmer quenching analysis.</span>
+                        </div>
+                        <span class="track-tag">RESEARCH</span>
+                    </div>
+                    <div class="track-row">
+                        <span class="track-id">2</span>
+                        <div class="track-main">
+                            <span class="track-title">AguaClara Cornell</span>
+                            <span class="track-sub">Coded Arduino sensors and modeled hardware in Fusion.</span>
+                        </div>
+                        <span class="track-tag">ENG</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-container">
+                <div class="album-card" onclick="toggleAlbum('edu-content')">
+                    <img src="images/FlocWareV1SideView.png" alt="Education Cover Art" class="album-art-large">
+                    <div class="play-btn-circle"><i class="fa-solid fa-play"></i></div>
+                    <h3>Education</h3>
+                    <p>Single • 2026</p>
+                </div>
+                <div id="edu-content" class="album-dropdown">
+                    <div class="track-row">
+                        <span class="track-id">1</span>
+                        <div class="track-main">
+                            <span class="track-title">Cornell University</span>
+                            <span class="track-sub">B.S. Computational Biology & Statistics</span>
+                        </div>
+                        <span class="track-tag">IVY</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+   </div>
+
+   <div class="player-bar">
+        <div class="now-playing">
+            <img src="images/About-Me-Image.jpg" class="album-art">
+            <div class="track-info">
+                <span class="track-name">Streaming from GitHub API</span>
+                <span class="artist-name">Anthony Egan</span>
+            </div>
+        </div>
+        <div class="controls">
+            <i class="fa-solid fa-shuffle"></i>
+            <i class="fa-solid fa-backward-step"></i>
+            <i class="fa-solid fa-circle-play fa-2xl" style="color: white;"></i>
+            <i class="fa-solid fa-forward-step"></i>
+            <i class="fa-solid fa-repeat"></i>
+        </div>
+        <div class="volume-controls" style="width: 30%; display: flex; justify-content: flex-end; color: #b3b3b3; padding-right: 20px;">
+             <i class="fa-solid fa-microchip"></i>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

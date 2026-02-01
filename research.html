@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Anthony Egan | Portfolio</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://kit.fontawesome.com/23789633b0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="sidebar">
+        <div class="logo">egan <i class="fa-solid fa-bolt" style="color: #1DB954;"></i></div>
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li class="active"><a href="research.html"><i class="fa-solid fa-flask"></i> Research</a></li>
+            <li><a href="github.html"><i class="fa-solid fa-code"></i> GitHub</a></li>
+            <li><a href="resume.html"><i class="fa-solid fa-file-invoice"></i> Resume</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+<div class="main-view">
+    <div class="hero-gradient" style="background: linear-gradient(to bottom, #1e3264, #121212);">
+        <h1>Research</h1>
+    </div>
+    <div class="container">
+        <h2 class="sub-title">Scientific Playlists</h2>
+        <div class="card-grid">
+            <div class="spotify-card">
+                <div class="play-btn-circle" id="acridine-trigger">
+                    <i class="fa-solid fa-play" style="color: black;"></i>
+                </div>
+                <img src="images/lab-work.jpg" alt="Lab Work">
+                <h3>Dinolfo Group</h3>
+                <p>Stern-Volmer Quenching & Python Automation</p>
+                <span class="track-tag">Chemistry</span>
+            </div>
+
+            <div class="spotify-card">
+                <div class="play-btn-circle">
+                    <i class="fa-solid fa-play" style="color: black;"></i>
+                </div>
+                <img src="images/aguaclara.jpg" alt="AguaClara">
+                <h3>AguaClara</h3>
+                <p>FlocWare Hardware & C++ Coding</p>
+                <span class="track-tag">Engineering</span>
+            </div>
+        </div>
+    </div>
+</div>
+   </div>
+
+   <div class="player-bar">
+        <div class="now-playing">
+            <img src="images/About-Me-Image.jpg" class="album-art">
+            <div class="track-info">
+                <span class="track-name">Streaming from GitHub API</span>
+                <span class="artist-name">Anthony Egan</span>
+            </div>
+        </div>
+        <div class="controls">
+            <i class="fa-solid fa-shuffle"></i>
+            <i class="fa-solid fa-backward-step"></i>
+            <i class="fa-solid fa-circle-play fa-2xl" style="color: white;"></i>
+            <i class="fa-solid fa-forward-step"></i>
+            <i class="fa-solid fa-repeat"></i>
+        </div>
+        <div class="volume-controls" style="width: 30%; display: flex; justify-content: flex-end; color: #b3b3b3; padding-right: 20px;">
+             <i class="fa-solid fa-microchip"></i>
+        </div>
+    </div>
+</body>
+</html>
