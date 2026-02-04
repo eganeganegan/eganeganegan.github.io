@@ -9,7 +9,7 @@ if (githubList) {
                     <span style="width: 30px; color: #b3b3b3;">${i + 1}</span>
                     <div class="track-main" style="flex: 1;">
                         <span class="track-title">${repo.name}</span>
-                        <span class="track-sub">${repo.description || "Public Research Repository"}</span>
+                        <span class="track-sub">${repo.description || "Public Repository"}</span>
                     </div>
                     <span class="track-tag" style="width: 150px;">${repo.language || 'Software'}</span>
                     <span style="width: 50px; color: #b3b3b3;"><i class="fa-solid fa-ellipsis"></i></span>
@@ -34,5 +34,4 @@ function toggleAlbum(albumId) {
     if (!isActive) {
         target.classList.add('active');
     }
-}
-
+    }
